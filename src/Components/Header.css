@@ -1,0 +1,19 @@
+.App {
+    text-align: center;
+   
+  }
+  
+  .logo {
+    height: 40vmin;
+    pointer-events: none;
+  }
+  
+  .logo{
+text-shadow: 2px 2px  #49bbbf;
+color: black;
+font-family: cursive;
+  }
+
+  Container{
+      color: blue;
+  }
