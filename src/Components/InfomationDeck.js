@@ -1,11 +1,11 @@
 
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faClock, faUtensils, faEnvelopeOpenText, faMobileAlt } from "@fortawesome/free-solid-svg-icons";
-import { faFacebook, faTwitter, faInstagramSquare, faApplePay, faGoogleWallet, faPaypal, faCcVisa, faCcDiscover, faCcMastercard, faCcAmex, } from "@fortawesome/free-brands-svg-icons";
+import { faEnvelopeOpenText, faMobileAlt } from "@fortawesome/free-solid-svg-icons";
+import { faFacebook, faTwitter, faInstagramSquare } from "@fortawesome/free-brands-svg-icons";
 
 
-class Footer extends React.Component {
+class InformationDeck extends React.Component {
     constructor(props) {
         super(props)
     }
@@ -19,7 +19,7 @@ class Footer extends React.Component {
                     <div className="card-body">
                         <h5 className="card-title">Location</h5>
                         <hr></hr>
-                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3142.211413038313!2d-84.49472698527144!3d38.04215997971164!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x884244e844532c33%3A0xb6919957af36b713!2s348%20E%20Main%20St%2C%20Lexington%2C%20KY%2040507!5e0!3m2!1sen!2sus!4v1585602046704!5m2!1sen!2sus" width="300" height="300" frameborder="0" className="sjustify-content-center" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3142.211413038313!2d-84.49472698527144!3d38.04215997971164!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x884244e844532c33%3A0xb6919957af36b713!2s348%20E%20Main%20St%2C%20Lexington%2C%20KY%2040507!5e0!3m2!1sen!2sus!4v1585602046704!5m2!1sen!2sus" width="300" height="300" frameBorder="0" className="sjustify-content-center" aria-hidden="false" ></iframe>
                     </div>
                     
                 </div>
@@ -69,10 +69,10 @@ class Footer extends React.Component {
                 </div>
 
 
-                <div class="card">
+                <div className="card">
                     <img src="./contactus.jpg" className="card-img-top" alt="..." />
                     <div className="card-body">
-                        <h5 class="card-title">Contact Info</h5>
+                        <h5 className="card-title">Contact Info</h5>
                         <hr></hr>
                         <h4 className="row justify-content-start pb-4"><FontAwesomeIcon icon={faFacebook} /><span className="ml-3">  Facebook.com/RogersDiner</span></h4>
                         <h4 className="row justify-content-start pb-4"><FontAwesomeIcon icon={faTwitter} /><span className="ml-3"> @RogersDiner</span></h4>
@@ -82,10 +82,12 @@ class Footer extends React.Component {
                     </div>
                    
                 </div>
+              
             </div>
+            
         );
     }
 }
 
-export default Footer;
+export default InformationDeck;
 

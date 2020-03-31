@@ -9,20 +9,19 @@ class Header extends React.Component {
 
     render() {
         return (
-         
+
             <div className="Container">
 
-<img src="/RogersDiner.png" className="logo mt-3" alt="logo" />
+                <img src="./Images/RogersDiner.png" className="logo mt-3" alt="logo" />
 
-<h1 className="logo">
-  When you're here, you're home.
- 
- </h1>
-</div>
- 
+                <h1 className="logo">
+                    When you're here, you're home.
+                </h1>
+            </div>
+
         );
-        }
     }
+}
 
 export default Header;
 

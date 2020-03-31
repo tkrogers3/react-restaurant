@@ -2,14 +2,21 @@ import React from 'react';
 import './App.css';
 import Navbar from './Components/Navbar.js';
 import Header from './Components/Header.js';
-import Footer from './Components/Footer.js';
+import InformationDeck from './Components/InfomationDeck.js';
+import Menu  from './Components/Menu.js';
+import MenuItems from './Components/MenuItems';
+
 
 function App() {
   return (
     <div className="App">
       <Navbar />
        <Header />
-    <Footer />
+       <MenuItems />
+       <Menu />
+    <InformationDeck />
+
+
      </div>
   );
 }
