@@ -13,7 +13,7 @@ class InformationDeck extends React.Component {
     render() {
         return (
 
-            <div className="card-group">
+            <div className="card-group" id="location">
                 <div className="card">
                
                     <img src= {process.env.PUBLIC_URL + '/Images/rogers1.jpg'}  className="card-img-top" alt="..." />
@@ -71,10 +71,10 @@ class InformationDeck extends React.Component {
                 </div>
 
 
-                <div className="card">
+                <div className="card" >
                 
                     <img src= {process.env.PUBLIC_URL + '/Images/contactus.jpg'}  className="card-img-top" alt="..." />
-                    <div className="card-body">
+                    <div className="card-body" id="contact">
                         <h5 className="card-title">Contact Info</h5>
                         <hr></hr>
                         <h4 className="row justify-content-start pb-4"><FontAwesomeIcon icon={faFacebook} /><span className="ml-3">  Facebook.com/RogersDiner</span></h4>
