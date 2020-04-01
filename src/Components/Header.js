@@ -12,7 +12,7 @@ class Header extends React.Component {
 
             <div className="Container">
 
-                <img src="./Images/RogersDiner.png" className="logo mt-3" alt="logo" />
+                <img src={process.env.PUBLIC_URL + '/Images/RogersDiner.png'} className="logo mt-3" alt="logo" />
 
                 <h1 className="logo">
                     When you're here, you're home.
