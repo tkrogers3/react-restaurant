@@ -1,6 +1,6 @@
 import React from 'react';
+//import { faWindows } from '@fortawesome/free-brands-svg-icons';
 const axios = require('axios');
-
 
 class MenuItems extends React.Component {
   constructor(props) {
@@ -8,19 +8,18 @@ class MenuItems extends React.Component {
 
     //Stored in State= menu items,prices, sections
     this.state = {
-      menuItems: [],
-      price: [],
-      sections: ["Appetizers",
-        "Lunch",
-        "Dinner",
-        "Sides",
-        "Deserts"],
+      menuItems: []//api object items
+
     }
   }
-
+  setPrice() {
+    return Math.floor(Math.random() * 10) + 15;
+  }
   async newMenu() {
-    let objItems = await axios.get('https://entree-f18.herokuapp.com/v1/menu')
+
+    let results = await axios.get('https://entree-f18.herokuapp.com/v1/menu/' + this.props.item.selections)
       .then(function (response) {
+
         return response.data.menu_items; // handle success
 
       })
@@ -31,28 +30,52 @@ class MenuItems extends React.Component {
       .finally(function () {
         // always executed
       });
-    this.setState({
-      menuItems: objItems,
+
+    await this.setState({
+      menuItems: results,
     });
   }
-  componentDidMount() {
 
-    this.newMenu();
-    console.log("the component did mount");
+  //set local storage
+  // if localStorage key = menu section this.props.item.name  
+  async componentDidMount() {
+    if (window.localStorage[this.props.item.name] != null) {
+      let results = JSON.parse(window.localStorage.getItem(this.props.item.name)) || [];
+      this.setState(
+        { menuItems: results }
+      );
+    } else {
+      this.newMenu();
+
+    }
+
+  }
+
+  componentDidUpdate() {
+    window.localStorage.setItem(this.props.item.name, JSON.stringify(this.state.menuItems))
+
   }
 
   render() {
 
-    let allItems = this.state.menuItems.map((item, idx) => {
-      return <div className="table bg-info" key={idx}>{item.description} - $5.99</div>
+    return (
 
-    });
-    if (this.state.menuItems === 0) {
-      return null;
-    } else {
-      return allItems;
-    }
+      <div className="card" >
+        <div className="card-header textColor" id="sectionTitle">
+          <h3>{this.props.item.name}</h3>
+        </div>
+        <ul className="list-group list-group-flush">
+          <li className="list-group-item">
+            {
+              this.state.menuItems ? this.state.menuItems.map((food, idx) => {
+                return <div className="table border-bottom font-weight-bold mx-auto" key={idx}>{food.description} - {this.setPrice()} </div>
+              }) : null
+            }
 
+          </li>
+        </ul>
+      </div>
+    )
   }
 
 }
