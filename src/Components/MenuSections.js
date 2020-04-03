@@ -31,9 +31,7 @@ class MenuSections extends React.Component {
       {
         name: "Deserts",
         selections: 10,
-        price: {setPrice() {
-          return Math.floor( Math.random() * 10) + 15;}
-        }
+       
       }
     ]
 

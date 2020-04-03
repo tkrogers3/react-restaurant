@@ -1,21 +1,21 @@
 import React from 'react';
-//import { faWindows } from '@fortawesome/free-brands-svg-icons';
 const axios = require('axios');
 
 class MenuItems extends React.Component {
   constructor(props) {
     super(props);
 
-    //Stored in State= menu items,prices, sections
+    //Stored in State= menu items
     this.state = {
       menuItems: []//api object items
 
     }
   }
+  //create a function that sets price for each item  by randomizing number.
   setPrice() {
-    return Math.floor(Math.random() * 10) + 15;
-  }
-  async newMenu() {
+    return '$' + Math.floor(Math.random() * Math.floor (10) + 15);
+   } 
+/*The promise*/ async newMenu() {
 
     let results = await axios.get('https://entree-f18.herokuapp.com/v1/menu/' + this.props.item.selections)
       .then(function (response) {
@@ -31,18 +31,20 @@ class MenuItems extends React.Component {
         // always executed
       });
 
-    await this.setState({
+   /*The promise settled */ await this.setState({
       menuItems: results,
     });
   }
 
   //set local storage
-  // if localStorage key = menu section this.props.item.name  
+  // if localStorage key is present, JSON.parse the key into a string, 
+ // set state of menuItems array to equal the parsed data from local storage.
+ //else, if the local storage is not set, return send the newMenu data to Local Storage
   async componentDidMount() {
     if (window.localStorage[this.props.item.name] != null) {
       let results = JSON.parse(window.localStorage.getItem(this.props.item.name)) || [];
       this.setState(
-        { menuItems: results }
+        { menuItems: results } //setting state of menuItems to the result of the json parse 
       );
     } else {
       this.newMenu();
@@ -50,7 +52,7 @@ class MenuItems extends React.Component {
     }
 
   }
-
+//when component updates, stringify the menuItems
   componentDidUpdate() {
     window.localStorage.setItem(this.props.item.name, JSON.stringify(this.state.menuItems))
 
