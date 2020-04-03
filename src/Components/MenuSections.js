@@ -7,7 +7,7 @@ class MenuSections extends React.Component {
 
     this.state = {
     }
-    this.sections = [ //create sections array that stores object date property/value
+    this.sections = [ ///create sections array that stores object date property/value
       {
         name: "Appetizers",
         selections: 8,
