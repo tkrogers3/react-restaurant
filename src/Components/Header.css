@@ -8,11 +8,12 @@
     pointer-events: none;
   }
   
-  .slogan{
-
+  .logo{
 text-shadow: 2px 2px  #49bbbf;
 color: black;
 font-family: cursive;
   }
 
- 
+  Container{
+      color: blue;
+  }
